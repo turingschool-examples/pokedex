@@ -5,8 +5,9 @@ export const fakeReducer = (state='this is a fake action', action) => {
   }
 };
 
-export const pokemonTypesReducer = (state=[, action) => {
+export const pokemonTypesReducer = (state=[], action) => {
   switch (action.type) {
+    case
   default:
     return state;
   }
