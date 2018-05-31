@@ -7,19 +7,13 @@ import { sendPokemonTypes } from '../../actions/index';
 
 class FakeContainer extends Component {
 
-  async componentDidMount() {
-    const url = 'http://localhost:3001/types';
-    
-    const types = await fetchPokemon(url)
-    this.props.sendPokemonTypes(types);
-  }
-
   render() {
     return (
       <div>
         <button onClick={()=> {
           const url = 'http://localhost:3001/types';
           this.props.fakeAction();
+          fetchPokemon(url);
           alert('FAKE')
         }}> FAKE </button>
       </div>
@@ -32,13 +26,10 @@ FakeContainer.propTypes = {
   fakeAction: func.isRequired
 };
 
-// const mapStateToProps = ({ fake }) => ({ fake });
-const mapStateToProps = (state) => ({
-  pokemonTypes: state.pokemonTypes
-})
+const mapStateToProps = ({ fake }) => ({ fake });
+
 const mapDispatchToProps = dispatch => ({ 
   fakeAction: () => dispatch(fakeAction()),
-  sendPokemonTypes: (types) => dispatch(sendPokemonTypes(types))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FakeContainer);

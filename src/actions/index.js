@@ -5,3 +5,5 @@ export const sendPokemonTypes = (types) => ({
   types
 });
 
+
+
