@@ -1,6 +1,7 @@
 export const fakeAction = () => ({ type: 'FAKE'})
 
-export const pokemonTypesAction = (types) => ({
-  type: 'POKEMON_TYPES_ACTION',
+export const sendPokemonTypes = (types) => ({
+  type: 'SEND_POKEMON_TYPES',
   types
 });
+
