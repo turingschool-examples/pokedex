@@ -16,7 +16,7 @@ export const pokemonTypesReducer = (state=[], action) => {
 
 export const sendPokemonTypes = (state=[], action) => {
   switch (action.type) {
-    case 'SEND_POKEMON_TYPES':
+    case 'SEND_POKEMON_ACTION':
   return action.types
   default:
     return state;
