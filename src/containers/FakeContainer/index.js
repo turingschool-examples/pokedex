@@ -3,22 +3,22 @@ import PropTypes, { shape, func, string } from 'prop-types';
 import { connect } from 'react-redux';
 import { fakeAction } from '../../actions';
 import { fetchPokemon } from '../../api';
-import { sendPokemonAction } from '../../actions/index';
+import { sendPokemonTypes } from '../../actions/index';
 
 class FakeContainer extends Component {
 
 componentDidMount() {
   const url = 'http://localhost:3001/types';
-  const pokemonTypes = 
-  fetch(url)
+  return fetch(url)
   .then(response => response.json())
   .then(data => this.props.sendPokemonTypes(data))
 }
+
   render() {
     return (
       <div>
         <button onClick={()=> {
-          const url = 'http://localhost:3001/types';
+          // const url = 'http://localhost:3001/types';
           this.props.fakeAction();
           alert('FAKE')
         }}> FAKE </button>
@@ -39,7 +39,7 @@ const mapStateToProps = ({ fake }) => ({ fake });
 
 const mapDispatchToProps = dispatch => ({ 
   fakeAction: () => dispatch(fakeAction()),
-  sendPokemonTypes: (types) => dispatch(sendPokemonAction(types))
+  sendPokemonTypes: (types) => dispatch(sendPokemonTypes(types))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FakeContainer);
